@@ -8,7 +8,6 @@ class Program
 
         Random randomGenerator = new Random();
         int number = randomGenerator.Next(1, 100);
-        Console.WriteLine(number);
         
         Console.WriteLine("Welcome to the number game! You will be guessing a random number from 1 to 100.");
 
