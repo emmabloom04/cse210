@@ -27,6 +27,7 @@ class Program
         {
             sum += number;
         }
+        
         int average = sum / count;
         int max = numbers.Max();
         Console.WriteLine($"Sum: {sum}");
