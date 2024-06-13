@@ -81,5 +81,7 @@ class Program
     // using the function we defined above main
     double area = CalculateCircleArea(10);
     Console.WriteLine(area);
+    Console.WriteLine($"Formated area: {area.ToString("F3")}"); // printing a number with 3 decimals of percision
+    // there are many different ways to format strings. can google them if you want
     }
 }
