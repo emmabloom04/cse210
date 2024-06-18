@@ -2,23 +2,20 @@ using System.Runtime.InteropServices.Marshalling;
 
 class Job 
 {
-    private string _comapny;
+    private string _company;
     private string _jobTitle;
     private string _startYear;
     private string _endYear;
+    private string _jobInformation;
 
-    public Job(string company, string jobTitle, string startYear, string endYear)
-    {
-        company = _comapny;
-        jobTitle = _jobTitle;
-        startYear = _startYear;
-        endYear = _endYear;
+    public Job() { 
+
     }
 
     public string GetCompany()
     {
         Console.Write("Enter your company: ");
-        return _comapny = Console.ReadLine();
+        return _company = Console.ReadLine();
     }
 
     public string GetJobTitle()
@@ -37,5 +34,10 @@ class Job
     {
         Console.Write("Enter your end year: ");
         return _endYear = Console.ReadLine();
+    }
+
+    public string JobInformation()
+    {
+        return _jobInformation = $"{_jobTitle} ({_company}) {_startYear}-{_endYear}";
     }
 }
