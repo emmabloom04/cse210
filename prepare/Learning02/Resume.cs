@@ -3,7 +3,7 @@ using System.Runtime.InteropServices.Marshalling;
 class Resume {
 
     private string _member;
-    List<Job> jobs = new List<Job>();
+    List<string> jobs = new List<string>();
 
     public Resume() {
 
@@ -22,7 +22,17 @@ class Resume {
         string jobTitle = job.GetJobTitle();
         string startYear = job.GetStartYear();
         string endYear = job.GetEndYear();
-        jobs.Add(job);
+        string jobInformation = job.JobInformation();
+        jobs.Add(jobInformation);
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Name: {_member}");
+        Console.WriteLine("Jobs:");
+        foreach (string job in jobs) {
+            Console.WriteLine(job);
+        }
     }
 
 }
