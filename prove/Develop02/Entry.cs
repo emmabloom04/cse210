@@ -8,10 +8,11 @@ class Entry
         _date = theCurrentTime.ToShortDateString();
         return _date;
     }
-
-    public void GenerateRandomPrompt() {
+    public string GetResponse() {
         Prompt _prompt = new Prompt();
-        Console.WriteLine(_prompt.GetRandomPrompt());
+        Console.Write($"{_prompt} ");
+        return _response = Console.ReadLine();
     }
+
 
 }
