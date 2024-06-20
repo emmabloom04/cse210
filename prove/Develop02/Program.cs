@@ -8,5 +8,7 @@ class Program
         Console.WriteLine("Please pick an option:");
         Menu menu = new Menu();
         menu.DisplayOptions();
-    }
+        Entry entry = new Entry();
+        entry.GenerateRandomPrompt();    
+        }
 }
