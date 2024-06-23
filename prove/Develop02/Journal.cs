@@ -2,9 +2,10 @@ class Journal
 {
     private List<Entry> _entries = new List<Entry>();
 
-    public void AddEntry(Entry entry) {
+    public List<Entry> AddEntry(Entry entry) {
 
         _entries.Add(entry);
+        return _entries;
     }
 
     public void Display() {
@@ -25,7 +26,7 @@ class Journal
 
     public void ReadFromFile(string filename) {
         
-        string [] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines(filename);
         
         foreach (string line in lines) {
             string[] parts = line.Split("#");
@@ -35,7 +36,7 @@ class Journal
             string response = parts[2];
 
             Entry entry = new Entry(date, prompt, response);
-            this.AddEntry(entry);
+            AddEntry(entry);
         }
     }
 }

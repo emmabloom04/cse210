@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 class Entry 
 {
     private string _date;
@@ -9,6 +11,9 @@ class Entry
     }
 
     public Entry(string date, string prompt, string response) {
+        date = _date;
+        response = _response;
+        prompt = _prompt;
 
     }
 
@@ -29,7 +34,7 @@ class Entry
     public override string ToString() {
         
         string outputString = "";
-        outputString = $"{_date}#{_prompt}#{_response}";
+        outputString = $"Date: {_date}#Prompt: {_prompt}#Response: {_response}";
         return outputString;
     }
 
