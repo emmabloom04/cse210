@@ -2,6 +2,15 @@ class Entry
 {
     private string _date;
     private string _response;
+    private string _prompt;
+
+    public Entry() {
+
+    }
+
+    public Entry(string date, string prompt, string response) {
+
+    }
 
     public string GetDate() {
         DateTime theCurrentTime = DateTime.Now;
@@ -9,9 +18,19 @@ class Entry
         return _date;
     }
     public string GetResponse() {
-        Prompt _prompt = new Prompt();
+
+        Prompt _promptGenerator = new Prompt();
+        _prompt = _promptGenerator.GetRandomPrompt();
         Console.Write($"{_prompt} ");
-        return _response = Console.ReadLine();
+        _response = Console.ReadLine();
+        return _response;
+    }
+
+    public override string ToString() {
+        
+        string outputString = "";
+        outputString = $"{_date}#{_prompt}#{_response}";
+        return outputString;
     }
 
 
