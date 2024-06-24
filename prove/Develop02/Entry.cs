@@ -36,7 +36,7 @@ class Entry
     public override string ToString() {
         
         string outputString = "";
-        outputString = $"Date: {_date}#Prompt: {_prompt}#Response: {_response}";
+        outputString = $"{_date}#{_prompt}#{_response}";
         return outputString;
     }
 
