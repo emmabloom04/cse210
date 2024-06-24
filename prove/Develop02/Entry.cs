@@ -7,13 +7,15 @@ class Entry
     private string _prompt;
 
     public Entry() {
-
+        _date = "";
+        _response = "";
+        _prompt = "";
     }
 
     public Entry(string date, string prompt, string response) {
-        date = _date;
-        response = _response;
-        prompt = _prompt;
+        _date = date;
+        _response = response;
+        _prompt = prompt;
 
     }
 
