@@ -1,8 +1,8 @@
 class Journal
 {
-    private List<string> _entries = new List<string>();
+    private List<Entry> _entries = new List<Entry>();
 
-    public List<string> AddEntry(string entry) {
+    public List<Entry> AddEntry(Entry entry) {
 
         _entries.Add(entry);
         return _entries;
@@ -10,7 +10,7 @@ class Journal
 
     public void Display() {
 
-        foreach (string entry in _entries) {
+        foreach (Entry entry in _entries) {
             Console.WriteLine(entry);
         }
     }
@@ -18,7 +18,7 @@ class Journal
     public void WriteToFile(string filename) {
 
         using (StreamWriter outputFile = new StreamWriter(filename)) {
-            foreach (string entry in _entries) {
+            foreach (Entry entry in _entries) {
                 outputFile.WriteLine(entry.ToString());
             }
         }
@@ -36,8 +36,7 @@ class Journal
             string response = parts[2];
 
             Entry entry = new Entry(date, prompt, response);
-            string completeEntry = entry.ToString();
-            AddEntry(completeEntry);
+            AddEntry(entry);
         }
     }
 }

@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     
     {
-        List<string> entries = new List<string>();
+        List<Entry> entries = new List<Entry>();
         Journal journal = new Journal();
         Console.WriteLine("\nWelcome to the journal program.");
         Console.WriteLine("\nPlease pick an option:");
@@ -24,8 +24,7 @@ class Program
                 Entry entry = new Entry();
                 entry.GetDate();
                 entry.GetResponse();
-                string completeEntry = entry.ToString();
-                entries = journal.AddEntry(completeEntry); 
+                entries = journal.AddEntry(entry); 
             }
             else if (userChoice == 2) {
                 journal.Display();
