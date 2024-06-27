@@ -17,11 +17,6 @@ class Scripture {
         _reference = reference;
         // add something for the text
     }
-    // words list<word>
-    // reference: Reference class
-    // scripture(name, chapter, verse, text)
-    // scripture(name, chapter, start, end, text)
-    // scripture(reference, text)
 
     // get methods from slides
 
