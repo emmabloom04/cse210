@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 class Program
 {
@@ -7,8 +8,8 @@ class Program
     {
         Console.WriteLine("\nWelcome to the scripture mastery program!");
 
-        Scripture scripture;
-        Reference reference;
+        Scripture scripture = new Scripture("", "");
+        Reference reference = new Reference("", 1, 1);
 
         int scriptureChoice = 1;
         
@@ -37,6 +38,16 @@ class Program
             reference = new Reference("D&C", 88, 124);
             scripture = new Scripture(reference.GetScriptureReference(), "Cease to be idle; cease to be unclean; cease to find fault one with another; cease to sleep longer than is needful; retire to thy bed early, that ye may not be weary; arise early, that your bodies and your minds may be invigorated.");
         }
+        
+        string userInput = "";
+        bool finished;
+
+        do {
+            finished = scripture.AllFinished();
+            scripture.DisplayScripture();
+            scripture.PickRandomWords();
+            userInput = Console.ReadLine();
+        } while (userInput.ToLower() != "q" && !finished);
 
     }
 }

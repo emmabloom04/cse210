@@ -1,28 +1,107 @@
+using System.Drawing;
+
 class Scripture {
 
     List<string> _words = new List<string>();
     string _reference;
+    List<int> _numbers = new List<int>();
 
     public Scripture(string book, int chapter, int verse, string text) {
         _reference = $"{book} {chapter}:{verse}";
-        // add something for the text
+        foreach (string word in text.Split(" ")) {
+            _words.Add(word);
+        }
+        int length = _words.Count;
+        List<int> numbers = new List<int>();
+        for (int i = 0; i < length; i++) {
+            numbers.Add(i);
+        }
+        _numbers = numbers;
+
     }
 
-    public Scripture(string book, int chapter, int startVerse, int endVerse) {
+    public Scripture(string book, int chapter, int startVerse, int endVerse, string text) {
         _reference = $"{book} {chapter}:{startVerse}-{endVerse}";
-        // add something for the text
+        foreach (string word in text.Split(" ")) {
+            _words.Add(word);
+        }
+        int length = _words.Count;
+        List<int> numbers = new List<int>();
+        for (int i = 0; i < length; i++) {
+            numbers.Add(i);
+        }
+        _numbers = numbers;
     }
 
     public Scripture(string reference, string text) {
         _reference = reference;
-        // add something for the text
+        foreach (string word in text.Split(" ")) {
+            _words.Add(word);
+        }
+        int length = _words.Count;
+        List<int> numbers = new List<int>();
+        for (int i = 0; i < length; i++) {
+            numbers.Add(i);
+        }
+        _numbers = numbers;
     }
 
-    // get methods from slides
+    public void DisplayScripture() {
+        Console.Clear();
+        Console.WriteLine("Press ENTER to continue or type 'q' to quit.");
+        Console.WriteLine(_reference);
+        foreach (string word in _words) {
+            Console.Write($"{word} ");
+        }
+    }
 
+    public List<string> PickRandomWords() {
+        int listLength = _numbers.Count;
+        int numberOfWords;
+        
+        if (listLength >= 5) {
+            numberOfWords = 5;
+        }
+        else {
+            numberOfWords = listLength;
+        }
 
-    // foreach(string word in text.Split(" "))
-    // Word tempWord = new Word(word);
-    // _words.Add(tempWord);
-    // tempWord.SetIsHidden(false);
+        for (int i = 0; i < numberOfWords; i++) {
+                Random randomGenerator = new Random();
+                int index = randomGenerator.Next(_numbers.Count);
+                    Word wordChanger = new Word();
+                    int wordToRemove = _numbers[index];
+                    _words[wordToRemove] = wordChanger.HideWord(_words[wordToRemove]);
+                    _numbers.Remove(_numbers[index]);
+            }
+        
+        return _words;
+    }
+
+    // List<int> numbers = new List<int>();
+    //     for (int i = 0; i < length; i++) {
+    //         numbers.Add(i);
+    //     }
+    //     foreach (int number in numbers) {
+    //         Console.Write($"{number}, ");
+    //     }
+    //     numbers.RemoveAt(3);
+
+    public int GetListLength() {
+        int length = _words.Count;
+        return length;
+    }
+
+    public bool AllFinished() {
+        bool finished;
+        foreach (string word in _words) {
+            if (word[0] != '_') {
+                finished = false;
+                return finished;
+            }
+        }
+        finished = true;
+        return finished;
+    }
+
 }
