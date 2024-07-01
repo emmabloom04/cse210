@@ -11,7 +11,7 @@ class Scripture {
         foreach (string word in text.Split(" ")) {
             _words.Add(word);
         }
-        int length = _words.Count;
+        int length = GetListLength();
         List<int> numbers = new List<int>();
         for (int i = 0; i < length; i++) {
             numbers.Add(i);
@@ -25,7 +25,7 @@ class Scripture {
         foreach (string word in text.Split(" ")) {
             _words.Add(word);
         }
-        int length = _words.Count;
+        int length = GetListLength();
         List<int> numbers = new List<int>();
         for (int i = 0; i < length; i++) {
             numbers.Add(i);
@@ -38,7 +38,7 @@ class Scripture {
         foreach (string word in text.Split(" ")) {
             _words.Add(word);
         }
-        int length = _words.Count;
+        int length = GetListLength();
         List<int> numbers = new List<int>();
         for (int i = 0; i < length; i++) {
             numbers.Add(i);
