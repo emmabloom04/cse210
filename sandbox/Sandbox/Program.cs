@@ -1,7 +1,3 @@
-using System;
-using System.Runtime.ExceptionServices;
-// same as import statements
-
 class Program
 {
 
@@ -9,12 +5,17 @@ class Program
     {
         Console.WriteLine("Hello Sandbox World!");
 
-        Circle myCircle = new Circle(10);
-        Console.WriteLine($"{myCircle.GetArea()}");
+        Person person1 = new Person("Bob", "Billy", 34, 210);
+        Console.WriteLine(person1.PersonInformation());
 
-        Circle unitCircle = new Circle(1);
-        Console.WriteLine($"{unitCircle.GetCircumference()}");
-        Console.WriteLine($"{unitCircle.GetDiameter()}");
+        Fireman fireman = new Fireman("EMT and Parametic", "Betty", "Billy", 35, 130);
+        Console.WriteLine(fireman.PersonInformation());
+        // method from person class can be used in the fireman class because of inheritance
+        Console.WriteLine(fireman.FiremanInformation());
+
+        Policeman policeman = new Policeman("Taser and club", "Sally", "Smith", 54, 120);
+        Console.WriteLine(policeman.PersonInformation());
+        Console.WriteLine(policeman.PolicemanInformation());
 
     }
 }
