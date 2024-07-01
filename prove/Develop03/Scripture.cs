@@ -58,7 +58,7 @@ class Scripture {
     public List<string> PickRandomWords() {
         int listLength = _numbers.Count;
         int numberOfWords;
-        
+
         if (listLength >= 5) {
             numberOfWords = 5;
         }
@@ -77,15 +77,6 @@ class Scripture {
         
         return _words;
     }
-
-    // List<int> numbers = new List<int>();
-    //     for (int i = 0; i < length; i++) {
-    //         numbers.Add(i);
-    //     }
-    //     foreach (int number in numbers) {
-    //         Console.Write($"{number}, ");
-    //     }
-    //     numbers.RemoveAt(3);
 
     public int GetListLength() {
         int length = _words.Count;
