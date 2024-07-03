@@ -18,7 +18,21 @@ class ListingActivity : Activity {
         return _prompt;
     }
 
-    public void DisplayPrompt() {
+    private void DisplayPrompt() {
         Console.WriteLine($"-- {_prompt} --");
+    }
+    public void RunActivity() {
+        DateTime endTime = WelcomeMessage();
+        DisplayPrompt();
+        DateTime startTime = DateTime.Now;
+        int count = 0;
+        while (startTime < endTime) {
+            Console.ReadLine();
+            count += 1;
+            startTime = DateTime.Now;
+        }
+        Console.WriteLine($"You listed {count} things.");
+        Thread.Sleep(2000);
+        CompletionMessage();
     }
 }

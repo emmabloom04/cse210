@@ -23,10 +23,14 @@ class BreathingActivity : Activity {
     }
 
     public void RunActivity() {
-        for (int i = 0; i < 5; i++) {
+        DateTime endTime = WelcomeMessage();
+        DateTime startTime = DateTime.Now;
+        while (startTime < endTime) {
             BreatheIn();
             Hold();
             BreatheOut();
+            startTime = DateTime.Now;
         }
+        CompletionMessage();
     }
 }
