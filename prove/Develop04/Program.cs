@@ -8,12 +8,12 @@ class Program
         int userChoice = 0;
         do {
             Console.Clear();
-            Console.WriteLine("\nPlease pick your activity:\n\n1. Breathing activity\n2. Listing activity\n3. Reflection activity\n4. Quit");
+            Console.WriteLine("\nPlease pick your activity:\n\n1. Breathing activity\n2. Listing activity\n3. Reflection activity\n4. Grounding Activity\n5. Quit");
             try {
                 userChoice = int.Parse(Console.ReadLine());
             }
             catch {
-                Console.WriteLine("Input must be a number between 1 and 4.");
+                Console.WriteLine("Input must be a number between 1 and 5.");
                 Thread.Sleep(1000);
             }
             if (userChoice == 1) {
@@ -28,7 +28,11 @@ class Program
                 ReflectionActivity reflectionActivity = new ReflectionActivity("Reflection", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life. You will receive a prompt and questions to help you reflect on it. Take this time to reflect, no writing.");
                 reflectionActivity.RunActivity();
             }
-        } while (userChoice != 4);
+            else if (userChoice == 4) {
+                GroundingActivity groundingActivity = new GroundingActivity("Grounding", "This activity will help you become aware of your surroundings and help your thoughts to calm down.");
+                groundingActivity.RunActivity();
+            }
+        } while (userChoice != 5);
 
     }
 }

@@ -4,7 +4,8 @@ class ReflectionActivity : Activity {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
         "Think of a time when you helped someone in need.",
-        "Think of a time when you did something truly selfless."
+        "Think of a time when you did something truly selfless.",
+        "Think of a time you really went outside of your comfort zone."
     };
     List<string> _reflectionQuestions = new List<string> {
         "Why was this experience meaningful to you?",
@@ -37,13 +38,13 @@ class ReflectionActivity : Activity {
     public void RunActivity() {
         DateTime endTime = WelcomeMessage();
         DisplayPrompt();
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
         DateTime startTime = DateTime.Now;
         while (startTime < endTime) {
             string question = PickRandomPrompt(_reflectionQuestions);
             Console.Clear();
             Console.WriteLine($"\n-- {question} --");
-            Thread.Sleep(5000);
+            Spinner();
             startTime = DateTime.Now;
         }
         CompletionMessage();

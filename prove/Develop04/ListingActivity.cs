@@ -4,7 +4,13 @@ class ListingActivity : Activity {
         "What are personal strengths of yours?",
         "Who are people that helped you this week?",
         "When have you felt the Holy Ghost this month?",
-        "Who are some of your personal heroes?"
+        "Who are some of your personal heroes?",
+        "What are some things that make you happy?",
+        "What are some of your favorite songs?",
+        "What are some of the most beautiful things in the world?",
+        "What are some of your favorite days of the year?",
+        "Where are your favorite places to go?",
+        "What brings you peace?"
     };
     string _prompt;
     public ListingActivity(string nameOfActivity, string activityDescription) : base(nameOfActivity, activityDescription) {
