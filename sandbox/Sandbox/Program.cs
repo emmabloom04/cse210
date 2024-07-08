@@ -1,21 +1,24 @@
 class Program
 {
 
-    static void Main(string[] args) // you need to have a static main func for the program to work
+    static void Main(string[] args)
     {
         Console.WriteLine("Hello Sandbox World!");
 
-        Person person1 = new Person("Bob", "Billy", 34, 210);
-        Console.WriteLine(person1.PersonInformation());
+        Employee employee = new Employee("Bob", 40, 23.77);
 
-        Fireman fireman = new Fireman("EMT and Parametic", "Betty", "Billy", 35, 130);
-        Console.WriteLine(fireman.PersonInformation());
-        // method from person class can be used in the fireman class because of inheritance
-        Console.WriteLine(fireman.FiremanInformation());
+        ConstructionWorker constructionWorker = new ConstructionWorker("Betty", 40, 35.88);
 
-        Policeman policeman = new Policeman("Taser and club", "Sally", "Smith", 54, 120);
-        Console.WriteLine(policeman.PersonInformation());
-        Console.WriteLine(policeman.PolicemanInformation());
+        Doctor doctor = new Doctor("Belinda", 240000.99);
+
+        List<Employee> employees = new List<Employee>();
+        employees.Add(employee);
+        employees.Add(constructionWorker);
+        employees.Add(doctor);
+
+        foreach (Employee e in employees) {
+            Console.WriteLine($"{e.GetName()} is due: ${e.GetPay()}");
+        }
 
     }
 }
