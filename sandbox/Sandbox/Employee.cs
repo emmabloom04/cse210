@@ -16,5 +16,9 @@ abstract class Employee {
         return _name;
     }
 
+    public override string ToString() {
+        return $"Name: {_name}, Pay: {GetPay()}, Insurance: {InsuranceCost()}";
+    }
+
     public abstract double InsuranceCost();
 }
