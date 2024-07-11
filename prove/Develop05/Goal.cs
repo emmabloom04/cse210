@@ -9,4 +9,6 @@ abstract class Goal {
         _finished = finished;
         _points = points;
     }
+
+    public abstract bool FinishedOrNot();
 }

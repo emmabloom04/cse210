@@ -7,4 +7,9 @@ class ChecklistGoal : Goal {
         _numberCompleted = numberCompleted;
         _goalNumber = goalNumber;
     }
+
+    public override bool FinishedOrNot()
+    {
+        throw new NotImplementedException();
+    }
 }
