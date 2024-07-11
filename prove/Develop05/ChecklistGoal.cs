@@ -10,21 +10,38 @@ class ChecklistGoal : Goal {
 
     public override bool FinishedOrNot()
     {
-        throw new NotImplementedException();
-    }
-
-    public override void DisplayGoal()
-    {
-        base.DisplayGoal();
+        if (_numberCompleted == _goalNumber) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public override int GetPoints()
     {
-        return base.GetPoints();
+        int totalPoints;
+        bool finished;
+        finished = FinishedOrNot();
+        if (finished == false) {
+            totalPoints = GetPoints();
+        }
+        else {
+            totalPoints = GetPoints() + _bonus;
+        }
+        return totalPoints;
     }
 
     public override string ToString()
     {
-        return base.ToString();
+        string complete;
+        bool finished = FinishedOrNot();
+        if (finished == false) {
+            complete = "[ ]";
+        }
+        else {
+            complete = "[X]";
+        }
+        return $"{complete} {GetNameOfGoal()} ({GetGoalDescription()}) - Completed {_numberCompleted}/{_goalNumber}";
     }
 }

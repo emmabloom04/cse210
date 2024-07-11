@@ -12,11 +12,11 @@ abstract class Goal {
 
     public abstract bool FinishedOrNot();
 
-    public virtual void DisplayGoal() {
-
+    public virtual int GetPoints() {
+        return _points;
     }
 
-    public string GetGoalName() {
+    public string GetNameOfGoal() {
         return _nameOfGoal;
     }
 
@@ -24,12 +24,14 @@ abstract class Goal {
         return _goalDescription;
     }
 
-    public virtual int GetPoints() {
-        return _points;
-    }
-
-    public override string ToString()
-    {
-        return base.ToString();
+    public override string ToString(){
+        string complete;
+        if (_finished == false) {
+            complete = "[ ]";
+        }
+        else {
+            complete = "[X]";
+        }
+        return $"{complete} {_nameOfGoal} ({_goalDescription})";
     }
 }
