@@ -4,6 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        int userChoice = 0;
+        Menu menu = new Menu();
+
+        while (userChoice != 6) {
+            do {
+                menu.DisplayMenu();
+                userChoice = int.Parse(Console.ReadLine());
+            } while (userChoice > 6 || userChoice < 1);
+            menu.InterpretChoice(userChoice);
+        }
     }
 }
