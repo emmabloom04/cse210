@@ -11,4 +11,25 @@ abstract class Goal {
     }
 
     public abstract bool FinishedOrNot();
+
+    public virtual void DisplayGoal() {
+
+    }
+
+    public string GetGoalName() {
+        return _nameOfGoal;
+    }
+
+    public string GetGoalDescription() {
+        return _goalDescription;
+    }
+
+    public virtual int GetPoints() {
+        return _points;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

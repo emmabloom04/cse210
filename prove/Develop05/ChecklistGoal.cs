@@ -12,4 +12,19 @@ class ChecklistGoal : Goal {
     {
         throw new NotImplementedException();
     }
+
+    public override void DisplayGoal()
+    {
+        base.DisplayGoal();
+    }
+
+    public override int GetPoints()
+    {
+        return base.GetPoints();
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }
