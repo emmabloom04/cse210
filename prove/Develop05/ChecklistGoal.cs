@@ -1,5 +1,10 @@
 class ChecklistGoal : Goal {
-    public ChecklistGoal(string nameOfGoal, string goalDescription, bool finished, int points) : base(nameOfGoal, goalDescription, finished, points) {
-        
+    int _bonus;
+    int _numberCompleted;
+    int _goalNumber;
+    public ChecklistGoal(string nameOfGoal, string goalDescription, bool finished, int points, int bonus, int numberCompleted, int goalNumber) : base(nameOfGoal, goalDescription, finished, points) {
+        _bonus = bonus;
+        _numberCompleted = numberCompleted;
+        _goalNumber = goalNumber;
     }
 }
