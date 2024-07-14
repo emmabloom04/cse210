@@ -1,10 +1,37 @@
-class SimpleGoal : Goal {
-    public SimpleGoal(string nameOfGoal, string goalDescription, bool finished, int points) : base(nameOfGoal, goalDescription, finished, points) {
+class SimpleGoal : Goal
+{
+    private string _goalType;
+    public SimpleGoal(string name, string description, int points, bool status) : base(name, description, points, status)
+    {
 
     }
 
-    public override bool FinishedOrNot()
+    public SimpleGoal()
     {
-        throw new NotImplementedException();
+
+    }
+
+    public override void RunGoal()
+    {
+        ObtainName();
+        ObtainDescription();
+        ObtainPoints();
+    }
+
+    public override string GetGoalType()
+    {
+        _goalType = "Simple Goal";
+        return _goalType;
+    }
+
+    public override int RecordEvent()
+    {
+        SetStatus(true);
+        return GetPoints();
+    }
+
+    public override string ToString()
+    {
+        return $"{GetGoalType()}#{GetName()}#{GetDescription()}#{GetPoints()}#{GetStatus()}";
     }
 }

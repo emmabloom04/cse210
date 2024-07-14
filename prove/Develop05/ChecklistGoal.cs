@@ -1,47 +1,80 @@
-class ChecklistGoal : Goal {
-    int _bonus;
-    int _numberCompleted;
-    int _goalNumber;
-    public ChecklistGoal(string nameOfGoal, string goalDescription, bool finished, int points, int bonus, int numberCompleted, int goalNumber) : base(nameOfGoal, goalDescription, finished, points) {
-        _bonus = bonus;
-        _numberCompleted = numberCompleted;
-        _goalNumber = goalNumber;
+class ChecklistGoal : Goal
+{
+    private string _goalType;
+    private int _numberOfCompletions;
+    private int _maxGoals;
+    private int _bonusPoints;
+    public ChecklistGoal(string name, string description, int points, bool status, int completions, int max, int bonus) : base(name, description, points, status)
+    {
+        _numberOfCompletions = completions;
+        _maxGoals = max;
+        _bonusPoints = bonus;
+    }
+    public ChecklistGoal()
+    {
+
     }
 
-    public override bool FinishedOrNot()
+    public override void RunGoal()
     {
-        if (_numberCompleted == _goalNumber) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        ObtainName();
+        ObtainDescription();
+        ObtainPoints();
+        ObtainMaxGoal();
+        ObtainBonusPoints();
     }
 
-    public override int GetPoints()
+    public override string GetGoalType()
     {
-        int totalPoints;
-        bool finished;
-        finished = FinishedOrNot();
-        if (finished == false) {
-            totalPoints = GetPoints();
+        _goalType = "Checklist Goal";
+        return _goalType;
+    }
+
+    public override int RecordEvent()
+    {
+        _numberOfCompletions++;
+        if (_maxGoals == _numberOfCompletions)
+        {
+            SetStatus(true);
+            return GetPoints() + _bonusPoints;
         }
-        else {
-            totalPoints = GetPoints() + _bonus;
+        else
+        {
+            SetStatus(false);
+            return GetPoints();
         }
-        return totalPoints;
     }
 
     public override string ToString()
     {
+        return $"{GetGoalType()}#{GetName()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{_numberOfCompletions}#{_maxGoals}#{_bonusPoints}";
+    }
+
+    public override string ListGoal()
+    {
         string complete;
-        bool finished = FinishedOrNot();
-        if (finished == false) {
+        if (GetStatus() == false)
+        {
             complete = "[ ]";
         }
-        else {
+        else
+        {
             complete = "[X]";
         }
-        return $"{complete} {GetNameOfGoal()} ({GetGoalDescription()}) - Completed {_numberCompleted}/{_goalNumber}";
+        return $"{complete} {GetName()} ({GetDescription()} - Completed: {_numberOfCompletions}/{_maxGoals})";
+    }
+
+    private int ObtainMaxGoal()
+    {
+        Console.Write("Number of times you want to complete this goal: ");
+        _maxGoals = int.Parse(Console.ReadLine());
+        return _maxGoals;
+    }
+
+    private int ObtainBonusPoints()
+    {
+        Console.Write("Bonus you want to receive after finishing the goal the max number of times: ");
+        _bonusPoints = int.Parse(Console.ReadLine());
+        return _bonusPoints;
     }
 }
