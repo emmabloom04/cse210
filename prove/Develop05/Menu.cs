@@ -6,7 +6,7 @@ class Menu
         Console.WriteLine("\nWelcome to the Eternal Quest Program!");
         Console.WriteLine("\nPick an option:");
         Console.WriteLine("\n1. Write new goal");
-        Console.WriteLine("2. Record an event");
+        Console.WriteLine("2. Complete a goal");
         Console.WriteLine("3. Remove goal from list");
         Console.WriteLine("4. Load goals");
         Console.WriteLine("5. Write goals to a file");
