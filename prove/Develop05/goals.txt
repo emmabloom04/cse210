@@ -1,4 +1,4 @@
-250
-Simple Goal#Pack#Prepare to move#300#False
+550
+Simple Goal#Pack#Prepare to move#300#True
 Eternal Goal#Make my bed#Do it every morning#50#False#3
 Checklist Goal#Attend temple#Preform baptisms#50#False#0#10#500
