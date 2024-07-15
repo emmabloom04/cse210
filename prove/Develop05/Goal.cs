@@ -13,7 +13,10 @@ abstract class Goal
     }
     public Goal()
     {
-
+        _name = "";
+        _description = "";
+        _points = 0;
+        _status = false;
     }
 
     public string ObtainName()

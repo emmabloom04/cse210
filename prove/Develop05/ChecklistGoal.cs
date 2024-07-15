@@ -12,7 +12,9 @@ class ChecklistGoal : Goal
     }
     public ChecklistGoal()
     {
-
+        _numberOfCompletions = 0;
+        _maxGoals = 0;
+        _bonusPoints = 0;
     }
 
     public override void RunGoal()

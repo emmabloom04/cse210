@@ -8,7 +8,7 @@ class EternalGoal : Goal
     }
     public EternalGoal()
     {
-
+        _numberOfCompletions = 0;
     }
 
     public override void RunGoal()
