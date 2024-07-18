@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Order> orders = new List<Order>();
+
         Address address1 = new Address("1234 Cherry Lane", "Rexburg", "ID", "US", "83440");
         Customer customer1 = new Customer("Billy Bob", address1);
         Order order1 = new Order(customer1);
@@ -13,9 +15,6 @@ class Program
         order1.AddProduct(product1);
         order1.AddProduct(product2);
         order1.AddProduct(product3);
-        order1.DisplayPackingLabel();
-        Console.WriteLine();
-        order1.DisplayShippingLabel();
 
         Address address2 = new Address("786 Bumblebee Road", "Daegu", "Korea", "Korea");
         Customer customer2 = new Customer("Daniel Choi", address2);
@@ -26,9 +25,16 @@ class Program
         order2.AddProduct(product4);
         order2.AddProduct(product5);
         order2.AddProduct(product6);
-        order2.DisplayPackingLabel();
-        Console.WriteLine();
-        Console.WriteLine();
-        order2.DisplayShippingLabel();
+
+        orders.Add(order1);
+        orders.Add(order2);
+
+        foreach (Order order in orders) 
+        {
+            order.DisplayPackingLabel();
+            Console.WriteLine();
+            order.DisplayShippingLabel();
+        }
+
     }
 }
