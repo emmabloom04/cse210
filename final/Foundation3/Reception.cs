@@ -5,8 +5,15 @@ class Reception : SocialEvent
         _email = email;
     }
 
-    public string GetEventType() 
+    private string GetEventType() 
     {
         return "Reception";
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Event type: {GetEventType()}");
+        DisplayEventInfo();
+        Console.WriteLine($"Please RSVP at {_email}");
     }
 }

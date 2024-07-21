@@ -38,8 +38,8 @@ class SocialEvent {
         return _address;
     }
 
-    public void DisplayEventInfo() 
+    protected void DisplayEventInfo() 
     {
-        Console.WriteLine($"Event title: {_title}\nDescription: {_description} Date: {_date}, Time: {_time}\nLocation:\n{_address.GetAddress()}");
+        Console.WriteLine($"Event title: {_title}\nDescription: {_description}\nDate: {_date}, Time: {_time}\nLocation:\n{_address.GetAddress()}");
     }
 }

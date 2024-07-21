@@ -6,8 +6,15 @@ class OutdoorGathering : SocialEvent
         _weather = weather;
     }
 
-    public string GetEventType()
+    private string GetEventType()
     {
         return "Outdoor Gathering";
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Event type: {GetEventType()}");
+        DisplayEventInfo();
+        Console.WriteLine($"Weather: {_weather}");
     }
 }
